@@ -14,30 +14,30 @@ namespace technolibCLR {
 	{
 		const unsigned technolibCLR_version = 1;
 
-		String^ ByteDisplay(unsigned long long bytes) {
-			const unsigned KB = 1024;
-			const unsigned MB = KB * 1024;
-			const unsigned GB = MB * 1024;
-			const unsigned long long TB = GB * 1024;
-			const unsigned long long PB = TB * 1024;
+		//String^ ByteDisplay(UInt64 bytes) {
+		//	const unsigned KB = 1024;
+		//	const unsigned  MB = KB * 1024;
+		//	const UInt64 GB = MB * 1024;
+		//	const UInt64 TB = GB * 1024;
+		//	const UInt64 PB = TB * 1024;
 
-			if (bytes < KB) {
-				return bytes.ToString + " bytes";
-			}
-			if (bytes < MB) {
-				return (bytes / KB).ToString + " KB";
-			}
-			if (bytes < GB) {
-				return (bytes / MB).ToString + " MB";
-			}
-			if (bytes < TB) {
-				return (bytes / GB).ToString + " GB";
-			}
-			if (bytes < PB) {
-				return (bytes / TB).ToString + " TB";
-			}
-			return (bytes / PB).ToString + " PB";
-		}
+		//	if (bytes < KB) {
+		//		return bytes.ToString & " bytes";
+		//	}
+		//	if (bytes < MB) {
+		//		return (bytes / KB).ToString & " KB";
+		//	}
+		//	if (bytes < GB) {
+		//		return (bytes / MB).ToString & " MB";
+		//	}
+		//	if (bytes < TB) {
+		//		return (bytes / GB).ToString & (String^)" GB";
+		//	}
+		//	if (bytes < PB) {
+		//		return (bytes / TB).ToString & (String^)" TB";
+		//	}
+		//	return (bytes / PB).ToString + " PB";
+		//}
 
 		void InitRNG() {
 			srand((unsigned)time(0)); // seed the generator
@@ -110,7 +110,7 @@ namespace technolibCLR {
 
 			String^ zero = "";
 			if (localDate.Day < 10) { zero = "0"; };
-			return zero + localDate.Day.ToString + "-" + lsMON + "-" + localDate.Year.ToString;
+			return zero + localDate.Day.ToString() + "-" + lsMON + "-" + localDate.Year.ToString();
 		}
 	};
 }
