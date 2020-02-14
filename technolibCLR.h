@@ -2,7 +2,8 @@
 // Techno's Library for VC++, version 0001
 // (c) 2020 Frank G. Dahncke
 
-// 0001 creation	11-FEB-2020
+// 0001 creation					11-FEB-2020
+// 0002 CalculatorCLR functions		14-FEB-2020
 
 #include <string>
 #include <ctime>
@@ -12,7 +13,7 @@ using namespace System;
 namespace technolibCLR {
 	public ref class TechnoClass
 	{
-		const unsigned technolibCLR_version = 1;
+		const unsigned technolibCLR_version = 2;
 
 		//String^ ByteDisplay(UInt64 bytes) {
 		//	const unsigned KB = 1024;
@@ -53,6 +54,29 @@ namespace technolibCLR {
 			if (sides < 2 || sides >100) return 0;
 			return 1 + (rand() % sides);
 		};
+
+		UInt64 faculty(unsigned int n)
+		{
+			if (n == 0)
+				return 1;
+			else
+				return n * faculty(n - 1);
+		}
+
+		int fibunacci(int n)
+		{
+			if (n == 0)
+				return 0;
+			else if (n == 1)
+				return 1;
+			else
+				return fibunacci(n - 1) + fibunacci(n - 2);
+		}
+
+		bool IsNumeric(String^ text) {
+			double test;
+			return double::TryParse(text, test);
+		}
 
 		String^ FillString(char c, unsigned amount) {
 			String^ lsResult = "";
