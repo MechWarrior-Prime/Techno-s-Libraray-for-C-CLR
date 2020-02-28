@@ -4,6 +4,8 @@
 
 // 0001 creation					11-FEB-2020
 // 0002 CalculatorCLR functions		14-FEB-2020
+// 0003	Randoms()					20-FEB-2020
+// 0004 InputBox					28-FEB-2020
 
 #include <string>
 #include <ctime>
@@ -13,7 +15,7 @@ using namespace System;
 namespace technolibCLR {
 	public ref class TechnoClass
 	{
-		const unsigned technolibCLR_version = 2;
+		const unsigned technolibCLR_version = 4;
 
 		//String^ ByteDisplay(UInt64 bytes) {
 		//	const unsigned KB = 1024;
@@ -86,6 +88,16 @@ namespace technolibCLR {
 			return lsResult;
 		}
 
+		String^ Randoms(unsigned amount, unsigned  largest) {
+			System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder;
+			for (unsigned i = 1; i <= amount; i++) {
+				sb->Append((1 + (rand() % largest)).ToString() + " ");
+			}
+			return sb->ToString();
+		}
+		String^ InputBox(String^ prompt, String^ title, String^ default) {
+			return Microsoft::VisualBasic::Interaction::InputBox(prompt, title, default, -1, -1);
+		}
 		const String^ currentDECDate() { //like in VMS of the Digital Equipment Corporation
 			DateTime localDate = DateTime::Now;
 			//lblClock->Text = localDate.ToLongTimeString();
